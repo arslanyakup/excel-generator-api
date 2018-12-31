@@ -20,11 +20,6 @@ public class GenerateController {
 	@Autowired
 	private GenerateService generateService;
 
-	@GetMapping("/home")
-	public String home() {
-		return "hello generator";
-	}
-
 	@PostMapping(value = "/create")
 	public @ResponseBody ResponseEntity<Boolean> excelGenerator(@RequestParam("excel") MultipartFile excelFile) throws Exception {
 		return ResponseEntity.ok().body(generateService.excelGenerator(excelFile));
